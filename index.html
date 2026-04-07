@@ -22,7 +22,21 @@
           <a class="nav__link" href="#contacts">Контакты</a>
         </nav>
 
-        <a class="btn btn--primary header__cta" href="#contacts">Получить консультацию</a>
+        <div class="header__right">
+          <a class="btn btn--primary header__cta" href="#contacts">Запросить план и смету</a>
+          <button class="iconBtn header__menuBtn" type="button" aria-label="Открыть меню" aria-controls="mobileNav" aria-expanded="false">
+            <span class="iconBtn__bars" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobileNav" class="mobileNav" hidden>
+        <div class="container mobileNav__inner" role="navigation" aria-label="Навигация (мобильная)">
+          <a class="mobileNav__link" href="#services">Услуги</a>
+          <a class="mobileNav__link" href="#pricing">Цены</a>
+          <a class="mobileNav__link" href="#about">Обо мне</a>
+          <a class="mobileNav__link" href="#contacts">Контакты</a>
+        </div>
       </div>
     </header>
 
@@ -30,56 +44,148 @@
       <section class="hero">
         <div class="container hero__grid">
           <div class="hero__content">
-            <h1 class="hero__title">
-              Ведение бухгалтерии и отчетности для ИП
-              <span class="hero__title-accent">без лишней суеты</span>
-            </h1>
+            <div class="kicker">Сервис бухгалтерского контроля для ИП</div>
+            <h1 class="hero__title">Ведение учета, отчетность и требования — по регламенту</h1>
             <p class="hero__subtitle">
-              Помогу вести учет, сдавать декларации вовремя и разобраться с налогами.
-              Подбираю решение под вашу систему налогообложения.
+              Настраиваем прозрачный процесс: календарь сроков, реестр квитанций и регулярная сводка по периоду.
+              Вы видите статус задач и подтверждения сдачи, а не “обещания на словах”.
             </p>
 
             <div class="hero__actions">
-              <a class="btn btn--primary" href="#contacts">Заказать расчет стоимости</a>
-              <a class="btn btn--ghost" href="#services">Посмотреть услуги</a>
+              <a class="btn btn--primary" href="#contacts">Получить план и смету</a>
+              <a class="btn btn--ghost" href="#pricing">Смотреть тарифы</a>
             </div>
 
             <div class="hero__trust">
-              <div class="trust">
-                <div class="trust__item">
-                  <div class="trust__value">Сроки</div>
-                  <div class="trust__label">Контроль сдачи</div>
+              <div class="metrics" role="list" aria-label="Ключевые параметры сервиса">
+                <div class="metric" role="listitem">
+                  <div class="metric__value">SLA: до 2 часов</div>
+                  <div class="metric__label">ответ в рабочее время</div>
                 </div>
-                <div class="trust__item">
-                  <div class="trust__value">Прозрачно</div>
-                  <div class="trust__label">Понятные пакеты</div>
+                <div class="metric" role="listitem">
+                  <div class="metric__value">Ежемесячная сводка</div>
+                  <div class="metric__label">статус, риски, следующие шаги</div>
                 </div>
-                <div class="trust__item">
-                  <div class="trust__value">Онлайн</div>
-                  <div class="trust__label">Ведение удаленно</div>
+                <div class="metric" role="listitem">
+                  <div class="metric__value">Квитанции и реестр</div>
+                  <div class="metric__label">подтверждения по периодам</div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="hero__card" aria-label="Карточка быстрого контакта">
-            <div class="hero__cardTop">
-              <h2 class="hero__cardTitle">Бесплатная первичная консультация</h2>
-              <p class="hero__cardText">
-                Уточню ваш режим налогообложения и сделаю расчет.
-                Ответ в течение рабочего дня.
-              </p>
-            </div>
-            <ul class="hero__list">
-              <li>НДС/без НДС (при необходимости)</li>
-              <li>УСН / ОСНО / ПСН</li>
-              <li>Безопасная передача документов</li>
-            </ul>
-            <div class="hero__cardBottom">
-              <a class="btn btn--primary btn--full" href="#contacts">Оставить заявку</a>
-              <div class="small">
-                Нажимая “Оставить заявку”, вы соглашаетесь на обработку данных.
+          <aside class="hero__ai" aria-label="Анимационный блок: данные — AI-модуль — результат">
+            <div class="aiScene" id="aiScene">
+              <div class="aiScene__glow" aria-hidden="true"></div>
+              <div class="aiScene__grid" aria-hidden="true"></div>
+
+              <svg class="aiRouteSvg" viewBox="0 0 800 650" preserveAspectRatio="none" aria-hidden="true">
+                <path class="aiRoutePath" d="M 190 170 C 290 170, 290 220, 390 220" />
+                <path class="aiRoutePathActive" d="M 190 170 C 290 170, 290 220, 390 220" />
+                <path class="aiRoutePath" d="M 190 255 C 300 255, 300 275, 390 275" />
+                <path class="aiRoutePathActive" d="M 190 255 C 300 255, 300 275, 390 275" />
+                <path class="aiRoutePath" d="M 190 340 C 290 340, 290 325, 390 325" />
+                <path class="aiRoutePathActive" d="M 190 340 C 290 340, 290 325, 390 325" />
+                <path class="aiRoutePath" d="M 190 425 C 280 425, 300 370, 390 370" />
+                <path class="aiRoutePathActive" d="M 190 425 C 280 425, 300 370, 390 370" />
+
+                <path class="aiRoutePath" d="M 410 220 C 510 220, 520 185, 610 185" />
+                <path class="aiRoutePathActive" d="M 410 220 C 510 220, 520 185, 610 185" />
+                <path class="aiRoutePath" d="M 410 275 C 520 275, 520 260, 610 260" />
+                <path class="aiRoutePathActive" d="M 410 275 C 520 275, 520 260, 610 260" />
+                <path class="aiRoutePath" d="M 410 325 C 515 325, 520 335, 610 335" />
+                <path class="aiRoutePathActive" d="M 410 325 C 515 325, 520 335, 610 335" />
+                <path class="aiRoutePath" d="M 410 370 C 500 370, 520 410, 610 410" />
+                <path class="aiRoutePathActive" d="M 410 370 C 500 370, 520 410, 610 410" />
+              </svg>
+
+              <div class="aiIncoming" aria-label="Данные">
+                <div class="aiCard aiCard--data active" data-index="0">
+                  <div class="aiCard__type">Документ</div>
+                  <div class="aiCard__title">Счет №145</div>
+                  <div class="aiCard__meta"><span>Поставка</span><span>сегодня</span></div>
+                </div>
+                <div class="aiCard aiCard--data" data-index="1">
+                  <div class="aiCard__type">Операция</div>
+                  <div class="aiCard__title">Платеж от клиента</div>
+                  <div class="aiCard__meta"><span>Банк</span><span>14:20</span></div>
+                </div>
+                <div class="aiCard aiCard--data" data-index="2">
+                  <div class="aiCard__type">Документ</div>
+                  <div class="aiCard__title">Акт выполненных работ</div>
+                  <div class="aiCard__meta"><span>Закрытие</span><span>новый</span></div>
+                </div>
+                <div class="aiCard aiCard--data" data-index="3">
+                  <div class="aiCard__type">Контроль</div>
+                  <div class="aiCard__title">Налоговый срок</div>
+                  <div class="aiCard__meta"><span>Напоминание</span><span>скоро</span></div>
+                </div>
               </div>
+
+              <div class="aiCore" aria-label="AI-модуль">
+                <div class="aiCoreRing aiCoreRing--1" aria-hidden="true"></div>
+                <div class="aiCoreRing aiCoreRing--2" aria-hidden="true"></div>
+                <div class="aiCore__outer" aria-hidden="true"></div>
+                <div class="aiCore__middle" aria-hidden="true"></div>
+                <div class="aiCore__inner">
+                  <div class="aiCore__label">AI Control</div>
+                  <div class="aiCore__title">Модуль учета</div>
+                  <div class="aiCore__status" id="aiCoreStatus">Анализ данных</div>
+                </div>
+              </div>
+
+              <div class="aiNode aiNode--1" aria-hidden="true"></div>
+              <div class="aiNode aiNode--2" aria-hidden="true"></div>
+              <div class="aiNode aiNode--3" aria-hidden="true"></div>
+              <div class="aiNode aiNode--4" aria-hidden="true"></div>
+
+              <div class="aiToken" id="aiToken" aria-hidden="true"></div>
+
+              <div class="aiResults" aria-label="Результат">
+                <div class="aiCard aiCard--result active" data-index="0">
+                  <div class="aiCard__type">Статус</div>
+                  <div class="aiCard__title">Проверено</div>
+                  <div class="aiCard__status">Данные сопоставлены</div>
+                </div>
+                <div class="aiCard aiCard--result" data-index="1">
+                  <div class="aiCard__type">Контроль</div>
+                  <div class="aiCard__title">Сроки под контролем</div>
+                  <div class="aiCard__status">Напоминания активны</div>
+                </div>
+                <div class="aiCard aiCard--result" data-index="2">
+                  <div class="aiCard__type">Аналитика</div>
+                  <div class="aiCard__title">Ошибки выявлены</div>
+                  <div class="aiCard__status">Проверка завершена</div>
+                </div>
+                <div class="aiCard aiCard--result" data-index="3">
+                  <div class="aiCard__type">Результат</div>
+                  <div class="aiCard__title">Отчетность готова</div>
+                  <div class="aiCard__status">Процесс подтвержден</div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="flow" aria-label="Процесс работы">
+        <div class="container">
+          <div class="flowBar" role="list" aria-label="Данные — AI-модуль — результат (процесс)">
+            <div class="flowStep" role="listitem">
+              <div class="flowStep__k">Вводные</div>
+              <div class="flowStep__v">документы, режим, объем</div>
+            </div>
+            <div class="flowStep" role="listitem">
+              <div class="flowStep__k">План периода</div>
+              <div class="flowStep__v">дедлайны, задачи, риски</div>
+            </div>
+            <div class="flowStep" role="listitem">
+              <div class="flowStep__k">Ведение</div>
+              <div class="flowStep__v">учет, сверки, требования</div>
+            </div>
+            <div class="flowStep" role="listitem">
+              <div class="flowStep__k">Подтверждения</div>
+              <div class="flowStep__v">квитанции + реестр</div>
             </div>
           </div>
         </div>
@@ -89,55 +195,75 @@
         <div class="container">
           <div class="section__head">
             <h2 class="section__title">Услуги</h2>
-            <p class="section__subtitle">Поддержка ИП на всех этапах: от старта до регулярного ведения.</p>
+            <p class="section__subtitle">Модули работ с понятным результатом: что делаю, что вы получаете, когда готово.</p>
           </div>
 
-          <div class="cards">
-            <article class="card">
-              <h3 class="card__title">Ведение учета ИП</h3>
-              <p class="card__text">
-                Сбор и проверка первичных документов, учет доходов/расходов, подготовка к отчетности.
-              </p>
-              <div class="card__tags">
-                <span class="tag">УСН</span>
-                <span class="tag">ПСН</span>
-                <span class="tag">ОСНО</span>
+          <div class="serviceList" role="list" aria-label="Список модулей">
+            <article class="serviceRow" role="listitem">
+              <div class="serviceRow__main">
+                <h3 class="serviceRow__title">Ведение учета</h3>
+                <p class="serviceRow__text">Проверка первички, учет доходов/расходов, контроль корректности базы.</p>
+              </div>
+              <div class="serviceRow__meta">
+                <div class="kv">
+                  <div class="kv__k">Результат</div>
+                  <div class="kv__v">Сводка + перечень вопросов + план на период</div>
+                </div>
+                <div class="kv">
+                  <div class="kv__k">Подходит</div>
+                  <div class="kv__v">УСН / ПСН / ОСНО</div>
+                </div>
               </div>
             </article>
 
-            <article class="card">
-              <h3 class="card__title">Отчетность и декларации</h3>
-              <p class="card__text">
-                Контроль сроков, подготовка и сдача отчетов. Напоминания и план на квартал/год.
-              </p>
-              <div class="card__tags">
-                <span class="tag">Декларации</span>
-                <span class="tag">Сверка</span>
-                <span class="tag">Требования</span>
+            <article class="serviceRow" role="listitem">
+              <div class="serviceRow__main">
+                <h3 class="serviceRow__title">Отчетность и декларации</h3>
+                <p class="serviceRow__text">Календарь сроков, подготовка, отправка, фиксация подтверждений сдачи.</p>
+              </div>
+              <div class="serviceRow__meta">
+                <div class="kv">
+                  <div class="kv__k">Результат</div>
+                  <div class="kv__v">Квитанции + реестр по периодам</div>
+                </div>
+                <div class="kv">
+                  <div class="kv__k">Контроль</div>
+                  <div class="kv__v">Дедлайны + напоминания</div>
+                </div>
               </div>
             </article>
 
-            <article class="card">
-              <h3 class="card__title">Консультации по налогам</h3>
-              <p class="card__text">
-                Помогу выбрать режим, оценить риски и оптимизировать платежи в рамках закона.
-              </p>
-              <div class="card__tags">
-                <span class="tag">Режим</span>
-                <span class="tag">Расчеты</span>
-                <span class="tag">Ответы</span>
+            <article class="serviceRow" role="listitem">
+              <div class="serviceRow__main">
+                <h3 class="serviceRow__title">Требования и сверки</h3>
+                <p class="serviceRow__text">Разбор требований, подготовка ответов, сверка с ИФНС и сопровождение.</p>
+              </div>
+              <div class="serviceRow__meta">
+                <div class="kv">
+                  <div class="kv__k">Результат</div>
+                  <div class="kv__v">Пакет ответа + журнал коммуникаций</div>
+                </div>
+                <div class="kv">
+                  <div class="kv__k">Срок</div>
+                  <div class="kv__v">по регламенту требования</div>
+                </div>
               </div>
             </article>
 
-            <article class="card">
-              <h3 class="card__title">Подготовка документов</h3>
-              <p class="card__text">
-                Помощь с договорами, актами, отчетами и пакетами для банков/контрагентов.
-              </p>
-              <div class="card__tags">
-                <span class="tag">Первичка</span>
-                <span class="tag">Договоры</span>
-                <span class="tag">Акты</span>
+            <article class="serviceRow" role="listitem">
+              <div class="serviceRow__main">
+                <h3 class="serviceRow__title">Налоговые консультации</h3>
+                <p class="serviceRow__text">Режим, риски, сценарии. Без “магии”: расчеты и понятные варианты действий.</p>
+              </div>
+              <div class="serviceRow__meta">
+                <div class="kv">
+                  <div class="kv__k">Результат</div>
+                  <div class="kv__v">Короткий мемо + рекомендации</div>
+                </div>
+                <div class="kv">
+                  <div class="kv__k">Формат</div>
+                  <div class="kv__v">созвон / чат / письмо</div>
+                </div>
               </div>
             </article>
           </div>
@@ -357,7 +483,7 @@
 
           <div class="contact__right">
             <form id="leadForm" class="form" novalidate>
-              <h3 class="form__title">Оставить заявку</h3>
+              <h3 class="form__title">Запросить план и смету</h3>
 
               <div class="form__grid">
                 <label class="field">
@@ -367,9 +493,15 @@
                 </label>
 
                 <label class="field">
-                  <span class="field__label">Телефон или email</span>
-                  <input class="field__input" name="contact" type="text" placeholder="+7..., name@domain.ru" autocomplete="email" required />
-                  <span class="field__error" data-error-for="contact"></span>
+                  <span class="field__label">Телефон</span>
+                  <input class="field__input" name="phone" type="tel" placeholder="+7 (___) ___‑__‑__" autocomplete="tel" inputmode="tel" />
+                  <span class="field__error" data-error-for="phone"></span>
+                </label>
+
+                <label class="field">
+                  <span class="field__label">Email</span>
+                  <input class="field__input" name="email" type="email" placeholder="name@domain.ru" autocomplete="email" inputmode="email" />
+                  <span class="field__error" data-error-for="email"></span>
                 </label>
 
                 <label class="field">
@@ -408,8 +540,7 @@
               <div class="form__actions">
                 <button class="btn btn--primary btn--full" type="submit">Отправить заявку</button>
                 <div class="small">
-                  Данные никуда не отправляются из демо-версии. Это форма для макета сайта.
-                  Если хотите — подключу реальную отправку (Telegram/почта/CRM).
+                  После отправки покажу подтверждение на экране. Для продакшена подключается отправка в Telegram/почту/CRM.
                 </div>
               </div>
 
