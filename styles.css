@@ -563,6 +563,83 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   background: rgba(45,107,255,.08);
   border-color: rgba(45,107,255,.22);
 }
+
+/* MagicBento-style spotlight (adapted: primary blue, no purple / no GSAP) */
+.spotlight-section{
+  position: relative;
+}
+.spotlight-section .price{
+  --glow-x: 50%;
+  --glow-y: 50%;
+  --glow-intensity: 0;
+  --glow-r: 45;
+  --glow-g: 107;
+  --glow-b: 255;
+  --glow-radius: 200px;
+  overflow: hidden;
+  isolation: isolate;
+}
+.spotlight-section .price > *{
+  position: relative;
+  z-index: 2;
+}
+.spotlight-section .price::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: radial-gradient(
+    var(--glow-radius) circle at var(--glow-x) var(--glow-y),
+    rgba(var(--glow-r), var(--glow-g), var(--glow-b), calc(var(--glow-intensity) * 0.42)) 0%,
+    rgba(var(--glow-r), var(--glow-g), var(--glow-b), calc(var(--glow-intensity) * 0.16)) 40%,
+    transparent 65%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity .2s ease;
+}
+.price-ripple{
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 4;
+  background: radial-gradient(circle, rgba(45,107,255,.32) 0%, rgba(45,107,255,.08) 42%, transparent 68%);
+  transform: scale(0);
+  opacity: 1;
+  transition: transform .7s cubic-bezier(.2,.85,.2,1), opacity .75s ease;
+}
+.price-ripple.price-ripple--active{
+  transform: scale(1);
+  opacity: 0;
+}
+
+.global-spotlight{
+  position: fixed;
+  width: min(680px, 92vw);
+  height: min(680px, 92vw);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 150;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  background: radial-gradient(
+    circle,
+    rgba(45, 107, 255, 0.11) 0%,
+    rgba(45, 107, 255, 0.045) 28%,
+    rgba(45, 107, 255, 0.015) 48%,
+    transparent 68%
+  );
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+}
+
 .price__title{ margin: 0; font-size: 16px; }
 .price__price{
   margin-top: 8px;
@@ -866,6 +943,64 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   flex: 0 0 auto;
 }
 
+/* Animated lists (адаптация AnimatedList / Motion: vanilla + CSS) */
+.anim-list{
+  position: relative;
+}
+.anim-list__viewport{
+  max-height: min(320px, 50vh);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2px 6px 2px 2px;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(45,107,255,.35) rgba(255,255,255,.06);
+}
+.anim-list__viewport--steps{
+  max-height: min(400px, 54vh);
+}
+.anim-list__viewport::-webkit-scrollbar{
+  width: 8px;
+}
+.anim-list__viewport::-webkit-scrollbar-track{
+  background: rgba(255,255,255,.04);
+  border-radius: 4px;
+}
+.anim-list__viewport::-webkit-scrollbar-thumb{
+  background: rgba(45,107,255,.25);
+  border-radius: 4px;
+}
+.anim-list__grad{
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 48px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .25s ease;
+  z-index: 2;
+}
+.anim-list__grad--top{
+  top: 0;
+  background: linear-gradient(to bottom, var(--surface), transparent);
+}
+.anim-list__grad--bottom{
+  bottom: 0;
+  background: linear-gradient(to top, var(--surface), transparent);
+}
+.anim-list__item{
+  transition: opacity .38s cubic-bezier(.2,.75,.2,1), transform .38s cubic-bezier(.2,.75,.2,1);
+  transition-delay: calc(var(--anim-i, 0) * 58ms);
+}
+.anim-list:not(.is-revealed) .anim-list__item{
+  opacity: 0;
+  transform: translateY(10px) scale(0.985);
+}
+.anim-list.is-revealed .anim-list__item{
+  opacity: 1;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce){
   *{ scroll-behavior: auto !important; }
   .btn{ transition: none; }
@@ -877,6 +1012,14 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   }
   .status--ok{ animation: none !important; }
   .btn--primary::after{ display: none !important; }
+  .global-spotlight{ display: none !important; }
+  .spotlight-section .price::before{ opacity: 0 !important; }
+  .anim-list:not(.is-revealed) .anim-list__item,
+  .anim-list.is-revealed .anim-list__item{
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 @media (max-width: 980px){
