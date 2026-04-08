@@ -204,6 +204,49 @@ a:hover{ text-decoration: underline; }
   font-weight: 850;
   margin-bottom: 10px;
 }
+.profile{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--line2);
+  border-radius: var(--radius2);
+  background: rgba(255,255,255,.55);
+  margin: 10px 0 14px;
+}
+.profile__photo{
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  object-fit: cover;
+  object-position: 55% 30%;
+  border: 1px solid var(--line);
+  filter: saturate(.9) contrast(1.02);
+  flex: 0 0 auto;
+}
+.profile--id{
+  padding: 12px 12px;
+  border-color: var(--line);
+  background: linear-gradient(180deg, rgba(255,255,255,.75) 0%, rgba(255,255,255,.55) 100%);
+}
+.profile__photo--id{
+  width: 74px;
+  height: 74px;
+  border-radius: 12px;
+  object-position: 56% 22%;
+  border-color: rgba(17,34,68,.12);
+  filter: saturate(.92) contrast(1.03);
+}
+.profile__title{
+  font-weight: 900;
+  letter-spacing: -0.1px;
+}
+.profile__sub{
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 650;
+}
 .hero__title{
   margin: 0;
   font-size: clamp(28px, 4vw, 46px);
