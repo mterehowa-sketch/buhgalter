@@ -19,6 +19,7 @@
           <a class="nav__link" href="#services">Услуги</a>
           <a class="nav__link" href="#pricing">Цены</a>
           <a class="nav__link" href="#about">Обо мне</a>
+          <a class="nav__link" href="#reviews">Отзывы</a>
           <a class="nav__link" href="#contacts">Контакты</a>
         </nav>
 
@@ -35,6 +36,7 @@
           <a class="mobileNav__link" href="#services">Услуги</a>
           <a class="mobileNav__link" href="#pricing">Цены</a>
           <a class="mobileNav__link" href="#about">Обо мне</a>
+          <a class="mobileNav__link" href="#reviews">Отзывы</a>
           <a class="mobileNav__link" href="#contacts">Контакты</a>
         </div>
       </div>
@@ -376,6 +378,64 @@
         </div>
       </section>
 
+      <section id="reviews" class="section" aria-label="Отзывы клиентов">
+        <div class="container">
+          <div class="section__head">
+            <h2 class="section__title">Отзывы</h2>
+            <p class="section__subtitle">
+              Перетащите верхнюю карточку влево или нажмите «Следующий» — как в демо-колоде карточек.
+            </p>
+          </div>
+
+          <div class="testimonials">
+            <div class="testimonials__viewport">
+              <div class="testimonials__deck" id="testimonialDeck" aria-live="polite">
+                <article
+                  class="testimonial-card"
+                  data-pos="front"
+                  role="article"
+                  aria-label="Отзыв 1 из 3"
+                >
+                  <div class="testimonial-card__avatar" aria-hidden="true">МП</div>
+                  <blockquote class="testimonial-card__quote">
+                    Наконец понятно, что и когда сдавать: календарь и чек‑листы реально экономят нервы. Рекомендую как сервис «под ключ» для ИП.
+                  </blockquote>
+                  <cite class="testimonial-card__cite">Марина П. — интернет‑магазин, УСН</cite>
+                </article>
+                <article
+                  class="testimonial-card"
+                  data-pos="middle"
+                  role="article"
+                  aria-label="Отзыв 2 из 3"
+                >
+                  <div class="testimonial-card__avatar" aria-hidden="true">ДВ</div>
+                  <blockquote class="testimonial-card__quote">
+                    Раньше боялась требований и сверок. Сейчас всё идёт по регламенту: ответы готовятся в срок, я вижу статус и подтверждения.
+                  </blockquote>
+                  <cite class="testimonial-card__cite">Дарья В. — услуги, ПСН</cite>
+                </article>
+                <article
+                  class="testimonial-card"
+                  data-pos="back"
+                  role="article"
+                  aria-label="Отзыв 3 из 3"
+                >
+                  <div class="testimonial-card__avatar" aria-hidden="true">ИС</div>
+                  <blockquote class="testimonial-card__quote">
+                    Смета и план на месяц без воды. Понятно, за что плачу и что получу на выходе — как у нормального B2B‑сервиса.
+                  </blockquote>
+                  <cite class="testimonial-card__cite">Игорь С. — консалтинг, ОСНО</cite>
+                </article>
+              </div>
+            </div>
+            <div class="testimonials__hint">Свайп/перетаскивание влево — следующий отзыв</div>
+            <div class="testimonials__actions">
+              <button type="button" class="btn btn--ghost" id="testimonialNext">Следующий отзыв</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="contacts" class="section section--alt">
         <div class="container contact">
           <div class="contact__left">
@@ -493,6 +553,7 @@
         <div class="footer__right">
           <a class="footer__link" href="#services">Услуги</a>
           <a class="footer__link" href="#pricing">Цены</a>
+          <a class="footer__link" href="#reviews">Отзывы</a>
           <a class="footer__link" href="#contacts">Контакты</a>
         </div>
       </div>
