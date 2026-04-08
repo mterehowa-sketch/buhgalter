@@ -49,6 +49,20 @@ body::before{
 a{ color: inherit; text-decoration: none; }
 a:hover{ text-decoration: underline; text-underline-offset: 3px; }
 
+/* Motion primitives (subtle, interface-like) */
+@keyframes uiFadeUp{
+  from{ opacity: 0; transform: translateY(10px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+@keyframes uiPulse{
+  0%, 100%{ box-shadow: 0 0 0 0 rgba(59,197,141,.00); }
+  50%{ box-shadow: 0 0 0 8px rgba(59,197,141,.06); }
+}
+@keyframes uiSheen{
+  from{ transform: translateX(-120%) skewX(-18deg); }
+  to{ transform: translateX(160%) skewX(-18deg); }
+}
+
 /* a11y */
 :focus-visible{
   outline: 3px solid rgba(45,107,255,.30);
@@ -106,11 +120,29 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   font-weight: 650;
   padding: 8px 10px;
   border-radius: 10px;
+  position: relative;
+  transition: color .15s ease, background .15s ease;
 }
 .nav__link:hover{
   text-decoration: none;
   background: rgba(255,255,255,.04);
   color: var(--text);
+}
+.nav__link::after{
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 6px;
+  height: 1px;
+  background: rgba(45,107,255,.55);
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity .15s ease, transform .15s ease;
+}
+.nav__link:hover::after{
+  opacity: .6;
+  transform: translateY(0);
 }
 .header__cta{ white-space: nowrap; }
 .header__right{
@@ -181,6 +213,7 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   color: var(--text);
   font-weight: 750;
   transition: transform .08s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+  position: relative;
 }
 .btn:hover{
   transform: translateY(-1px);
@@ -191,6 +224,19 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   border-color: rgba(45,107,255,.30);
   background: var(--primary);
   color: var(--primary-ink);
+}
+.btn--primary::after{
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,.14) 18%, transparent 35%);
+  opacity: 0;
+}
+.btn--primary:hover::after{
+  opacity: .9;
+  animation: uiSheen 1.05s ease both;
 }
 .btn--ghost{
   background: transparent;
@@ -205,6 +251,24 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
 
 .hero{
   padding: 46px 0 24px;
+}
+
+/* Page-load reveal for above-the-fold */
+.hero__content > *{
+  opacity: 0;
+  transform: translateY(10px);
+  animation: uiFadeUp .72s cubic-bezier(.2,.75,.2,1) forwards;
+}
+.hero__content > :nth-child(1){ animation-delay: .06s; }
+.hero__content > :nth-child(2){ animation-delay: .10s; }
+.hero__content > :nth-child(3){ animation-delay: .14s; }
+.hero__content > :nth-child(4){ animation-delay: .18s; }
+.hero__content > :nth-child(5){ animation-delay: .22s; }
+.hero__content > :nth-child(6){ animation-delay: .26s; }
+.hero__ai{
+  opacity: 0;
+  transform: translateY(10px);
+  animation: uiFadeUp .82s cubic-bezier(.2,.75,.2,1) .12s forwards;
 }
 .hero__grid{
   display: grid;
@@ -378,8 +442,9 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   margin-right: 8px;
 }
 .status--ok{
-  border-color: rgba(31,122,84,.22);
-  background: rgba(31,122,84,.08);
+  border-color: rgba(59,197,141,.22);
+  background: rgba(59,197,141,.10);
+  animation: uiPulse 7.5s ease-in-out infinite;
 }
 
 .section{
@@ -414,8 +479,18 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   gap: 18px;
   padding: 16px 16px;
   border-bottom: 1px solid var(--line2);
+  transition: background .18s ease, border-color .18s ease;
 }
 .serviceRow:last-child{ border-bottom: none; }
+.serviceRow:hover{
+  background: rgba(255,255,255,.02);
+}
+.serviceRow:hover .kv{
+  border-left-color: rgba(45,107,255,.38);
+}
+.serviceRow:hover .serviceRow__title{
+  color: rgba(227,231,240,.98);
+}
 .serviceRow__title{
   margin: 0;
   font-size: 16px;
@@ -461,6 +536,11 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   padding: 18px;
   position: relative;
   box-shadow: none;
+  transition: border-color .18s ease, background .18s ease;
+}
+.price:hover{
+  border-color: rgba(255,255,255,.16);
+  background: rgba(255,255,255,.01);
 }
 .price__badge{
   position: absolute;
@@ -471,6 +551,13 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   border-radius: 999px;
   background: rgba(45,107,255,.10);
   border: 1px solid rgba(45,107,255,.22);
+  color: rgba(227,231,240,.92);
+  transition: background .18s ease, border-color .18s ease, color .18s ease;
+}
+.price:hover .price__badge{
+  background: rgba(45,107,255,.16);
+  border-color: rgba(45,107,255,.32);
+  color: rgba(244,247,255,.98);
 }
 .price--featured{
   background: rgba(45,107,255,.08);
@@ -773,8 +860,8 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   width: 18px;
   height: 18px;
   border-radius: 6px;
-  background: rgba(31,122,84,.12);
-  border: 1px solid rgba(31,122,84,.22);
+  background: rgba(59,197,141,.12);
+  border: 1px solid rgba(59,197,141,.22);
   margin-top: 2px;
   flex: 0 0 auto;
 }
@@ -782,6 +869,14 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
 @media (prefers-reduced-motion: reduce){
   *{ scroll-behavior: auto !important; }
   .btn{ transition: none; }
+  .hero__content > *,
+  .hero__ai{
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .status--ok{ animation: none !important; }
+  .btn--primary::after{ display: none !important; }
 }
 
 @media (max-width: 980px){
