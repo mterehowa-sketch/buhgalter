@@ -382,6 +382,12 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   color: var(--hero-muted);
   max-width: 56ch;
 }
+.hero__note{
+  margin: -6px 0 16px;
+  color: var(--hero-muted);
+  font-size: 14px;
+  max-width: 60ch;
+}
 .hero__actions{
   display: flex;
   gap: 12px;
