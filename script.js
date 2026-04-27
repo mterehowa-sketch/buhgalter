@@ -226,80 +226,6 @@
     initStaticGroup(document.querySelector(".metrics"), ".metric");
   })();
 
-  /** Отзывы: колода карточек (аналог React + framer-motion drag) */
-  (function initTestimonials() {
-    const deck = document.getElementById("testimonialDeck");
-    const nextBtn = document.getElementById("testimonialNext");
-    if (!deck) return;
-
-    const cards = Array.from(deck.querySelectorAll(".testimonial-card"));
-    if (cards.length < 2) return;
-
-    let positions = ["front", "middle", "back"];
-
-    function apply() {
-      cards.forEach((card, i) => {
-        const pos = positions[i] || "back";
-        card.setAttribute("data-pos", pos);
-        card.setAttribute("tabindex", pos === "front" ? "0" : "-1");
-      });
-    }
-
-    function shuffle() {
-      const p = [...positions];
-      p.unshift(p.pop());
-      positions = p;
-      apply();
-    }
-
-    apply();
-
-    nextBtn?.addEventListener("click", shuffle);
-
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
-
-    let dragStartX = 0;
-    let captureEl = null;
-
-    deck.addEventListener(
-      "pointerdown",
-      (e) => {
-        const card = e.target.closest(".testimonial-card");
-        if (!card || card.getAttribute("data-pos") !== "front") return;
-        dragStartX = e.clientX;
-        captureEl = card;
-        try {
-          card.setPointerCapture(e.pointerId);
-        } catch (_) {}
-      },
-      true
-    );
-
-    deck.addEventListener(
-      "pointerup",
-      (e) => {
-        const card = captureEl || e.target.closest(".testimonial-card");
-        if (!card || card.getAttribute("data-pos") !== "front") {
-          captureEl = null;
-          return;
-        }
-        if (dragStartX - e.clientX > 130) shuffle();
-        dragStartX = 0;
-        captureEl = null;
-        try {
-          if (e.pointerId != null) card.releasePointerCapture(e.pointerId);
-        } catch (_) {}
-      },
-      true
-    );
-
-    deck.addEventListener("pointercancel", () => {
-      dragStartX = 0;
-      captureEl = null;
-    });
-  })();
-
   const menuBtn = document.querySelector(".header__menuBtn");
   const mobileNav = document.getElementById("mobileNav");
   function setMobileNav(open) {
@@ -426,5 +352,30 @@
     form.reset();
     if (planField) planField.value = keepPlan;
   });
+
+  /** skill.md: плавное появление секций при скролле (fade-up) */
+  (function initSkillScrollReveal() {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const containers = document.querySelectorAll("main > section.section > .container.skill-reveal");
+    if (!containers.length) return;
+
+    if (reduceMotion) {
+      containers.forEach((el) => el.classList.add("is-visible"));
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const en of entries) {
+          if (!en.isIntersecting) continue;
+          en.target.classList.add("is-visible");
+          io.unobserve(en.target);
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+
+    containers.forEach((el) => io.observe(el));
+  })();
 })();
 

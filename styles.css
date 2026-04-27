@@ -19,6 +19,68 @@
   --container: 1120px;
   --font: "Inter", system-ui, -apple-system, "Segoe UI", "Noto Sans", "Liberation Sans", sans-serif;
   --mono: ui-monospace, "Cascadia Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  /* skill.md: плавные интерфейсные анимации 300–700 ms */
+  --skill-motion-duration: 420ms;
+  --skill-motion-ease: cubic-bezier(.2,.75,.2,1);
+}
+
+/* skill.md: плавное появление блоков при скролле (fade-up) */
+html.skill-anims-ready .skill-reveal:not(.is-visible){
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity var(--skill-motion-duration) var(--skill-motion-ease),
+    transform var(--skill-motion-duration) var(--skill-motion-ease);
+}
+html.skill-anims-ready .skill-reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* skill.md: hover карточек — подъём 4–6px + мягкая тень */
+.stat,
+.bullet,
+.panel,
+.step,
+.proof,
+.testimonial-tile,
+.contact__info,
+.form,
+.about__right{
+  transition:
+    transform var(--skill-motion-duration) var(--skill-motion-ease),
+    box-shadow var(--skill-motion-duration) var(--skill-motion-ease),
+    border-color .22s ease,
+    background .22s ease;
+}
+.stat:hover,
+.bullet:hover,
+.panel:hover,
+.step:hover,
+.proof:hover,
+.testimonial-tile:hover,
+.contact__info:hover,
+.form:hover,
+.about__right:hover{
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+  border-color: rgba(23,32,51,.10);
+}
+
+@media (hover: none){
+  .price:hover,
+  .stat:hover,
+  .bullet:hover,
+  .panel:hover,
+  .step:hover,
+  .proof:hover,
+  .testimonial-tile:hover,
+  .contact__info:hover,
+  .form:hover,
+  .about__right:hover{
+    transform: none;
+    box-shadow: none;
+  }
 }
 
 *{ box-sizing: border-box; }
@@ -794,11 +856,20 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   padding: 18px;
   position: relative;
   box-shadow: none;
-  transition: border-color .18s ease, background .18s ease;
+  transition:
+    transform var(--skill-motion-duration) var(--skill-motion-ease),
+    box-shadow var(--skill-motion-duration) var(--skill-motion-ease),
+    border-color .18s ease,
+    background .18s ease;
 }
 .price:hover{
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
   border-color: rgba(23,32,51,.10);
   background: rgba(255,255,255,.70);
+}
+.spotlight-section .price:hover{
+  transform: translateY(-4px);
 }
 .price__badge{
   position: absolute;
@@ -1328,113 +1399,108 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   transform: none;
 }
 
-/* Отзывы: колода карточек (адаптация React + framer-motion) */
+/* Отзывы: сетка карточек (адаптация demo, light fintech / skill.md) */
+.section--reviews{
+  background: var(--surface2);
+  border-top: 1px solid var(--line2);
+  border-bottom: 1px solid var(--line2);
+}
+.section__head--center{
+  text-align: center;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 28px;
+}
 .testimonials{
-  display: grid;
-  gap: 14px;
-  justify-items: center;
-  margin-top: 8px;
+  margin-top: 0;
 }
-.testimonials__viewport{
-  width: 100%;
-  max-width: 420px;
-  padding: 12px 8px 8px;
-  overflow: visible;
-}
-.testimonials__deck{
-  position: relative;
-  margin: 0 auto;
-  width: min(100%, 360px);
-  height: min(420px, 58vh);
-  min-height: 340px;
-}
-.testimonial-card{
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  display: grid;
-  align-content: center;
+.testimonials__grid{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 18px;
-  padding: 22px 20px;
+}
+.testimonial-tile{
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 20px;
   border-radius: var(--radius);
   border: 1px solid var(--line);
-  background: rgba(22,26,34,.92);
-  backdrop-filter: blur(12px);
-  box-shadow: var(--shadow2);
-  transition: transform 0.35s cubic-bezier(.2,.75,.2,1), opacity 0.35s ease, filter 0.35s ease;
-  user-select: none;
-  -webkit-user-select: none;
+  background: var(--surface);
+  text-align: left;
 }
-.testimonial-card[data-pos="front"]{
-  z-index: 3;
-  transform: translateX(0) rotate(-5deg);
-  opacity: 1;
-  pointer-events: auto;
-  cursor: grab;
-  touch-action: none;
-}
-.testimonial-card[data-pos="front"]:active{
-  cursor: grabbing;
-}
-.testimonial-card[data-pos="middle"]{
-  z-index: 2;
-  transform: translateX(26%) rotate(0deg) scale(0.96);
-  opacity: 0.94;
-  pointer-events: none;
-}
-.testimonial-card[data-pos="back"]{
-  z-index: 1;
-  transform: translateX(50%) rotate(5deg) scale(0.92);
-  opacity: 0.88;
-  pointer-events: none;
-  filter: saturate(0.92);
-}
-.testimonial-card__avatar{
-  width: 88px;
-  height: 88px;
-  margin: 0 auto;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-weight: 900;
-  font-size: 22px;
-  letter-spacing: -0.04em;
-  color: #172033;
-  background: rgba(37,99,235,.10);
-  border: 1px solid rgba(37,99,235,.18);
-}
-.testimonial-card__quote{
-  margin: 0;
-  text-align: center;
-  font-size: 15px;
-  line-height: 1.45;
-  font-style: italic;
-  color: var(--muted);
-}
-.testimonial-card__cite{
+.testimonial-tile__mark{
   display: block;
-  text-align: center;
-  font-size: 13px;
-  font-weight: 750;
+  color: var(--accent);
+}
+.testimonial-tile__stars{
+  display: block;
+  color: rgba(37,99,235,.82);
+  margin-top: 2px;
+}
+.testimonial-tile__quote{
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
   font-style: normal;
-  color: rgba(37,99,235,.95);
-}
-.testimonials__hint{
-  font-size: 12px;
   color: var(--muted);
-  text-align: center;
 }
-.testimonials__actions{
+.testimonial-tile__author{
   display: flex;
-  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  width: 100%;
+}
+.testimonial-tile__photo{
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+}
+.testimonial-tile__name{
+  font-weight: 650;
+  font-size: 15px;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.testimonial-tile__role{
+  margin-top: 2px;
+  font-size: 13px;
+  color: var(--muted);
 }
 
 @media (prefers-reduced-motion: reduce){
   *{ scroll-behavior: auto !important; }
   .btn{ transition: none; }
+  html.skill-anims-ready .skill-reveal:not(.is-visible),
+  html.skill-anims-ready .skill-reveal.is-visible{
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .price:hover,
+  .stat:hover,
+  .bullet:hover,
+  .panel:hover,
+  .step:hover,
+  .proof:hover,
+  .testimonial-tile:hover,
+  .contact__info:hover,
+  .form:hover,
+  .about__right:hover{
+    transform: none !important;
+  }
   .hero__content > *,
   .hero__ai{
     animation: none !important;
@@ -1467,30 +1533,6 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
     transform: none !important;
     transition: none !important;
   }
-  .testimonial-card{
-    transition: none !important;
-  }
-  .testimonial-card[data-pos="front"],
-  .testimonial-card[data-pos="middle"],
-  .testimonial-card[data-pos="back"]{
-    transform: translateX(0) rotate(0) scale(1) !important;
-    opacity: 1 !important;
-    filter: none !important;
-    pointer-events: auto !important;
-  }
-  .testimonial-card[data-pos="middle"],
-  .testimonial-card[data-pos="back"]{
-    position: relative !important;
-    height: auto !important;
-    min-height: 0 !important;
-    margin-top: 12px !important;
-    top: auto !important;
-    left: auto !important;
-  }
-  .testimonials__deck{
-    height: auto !important;
-    min-height: 0 !important;
-  }
 }
 
 @media (max-width: 980px){
@@ -1520,12 +1562,6 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   .miniRow{ grid-template-columns: 1fr; }
   .grid2{ grid-template-columns: 1fr; }
   .proofGrid{ grid-template-columns: 1fr; }
-  .testimonial-card[data-pos="middle"]{
-    transform: translateX(18%) rotate(0deg) scale(0.96);
-  }
-  .testimonial-card[data-pos="back"]{
-    transform: translateX(34%) rotate(4deg) scale(0.92);
-  }
 
   /* Hero: упрощаем анимации на мобильной версии */
   .hero__card{

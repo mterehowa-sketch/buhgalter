@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <script>
+      document.documentElement.classList.add("skill-anims-ready");
+    </script>
   </head>
   <body>
     <header class="header">
@@ -163,7 +166,7 @@
       </section>
 
       <section id="about" class="section section--about">
-        <div class="container about about--withPhoto">
+        <div class="container skill-reveal about about--withPhoto">
           <div class="about__left">
             <div class="about__photo" aria-label="Фото специалиста">
               <img src="фото.png" alt="Фото бухгалтера" loading="lazy" decoding="async" />
@@ -213,7 +216,7 @@
       </section>
 
       <section id="services" class="section section--services">
-        <div class="container">
+        <div class="container skill-reveal">
           <div class="section__head">
             <h2 class="section__title">Услуги</h2>
             <p class="section__subtitle">Модули работ с понятным результатом: что делаю, что вы получаете, когда готово.</p>
@@ -300,7 +303,7 @@
       </section>
 
       <section id="pricing" class="section section--alt spotlight-section" aria-label="Тарифы">
-        <div class="container">
+        <div class="container skill-reveal">
           <div class="section__head">
             <h2 class="section__title">Цены</h2>
             <p class="section__subtitle">
@@ -352,7 +355,7 @@
       </section>
 
       <section class="section section--alt" aria-label="Процесс и гарантии">
-        <div class="container grid2">
+        <div class="container skill-reveal grid2">
           <div class="panel">
             <h2 class="section__title">Как мы работаем</h2>
             <p class="section__subtitle" style="margin-top: 8px;">
@@ -420,7 +423,7 @@
       </section>
 
       <section class="section" aria-label="Доказательства и результаты">
-        <div class="container">
+        <div class="container skill-reveal">
           <div class="section__head">
             <h2 class="section__title">Доказательства и результаты</h2>
             <p class="section__subtitle">
@@ -453,66 +456,119 @@
         </div>
       </section>
 
-      <section id="reviews" class="section" aria-label="Отзывы клиентов">
-        <div class="container">
-          <div class="section__head">
-            <h2 class="section__title">Отзывы</h2>
+      <section id="reviews" class="section section--reviews" aria-label="Отзывы клиентов">
+        <div class="container skill-reveal">
+          <div class="section__head section__head--center">
+            <h2 class="section__title">Что говорят клиенты</h2>
             <p class="section__subtitle">
-              Перетащите верхнюю карточку влево или нажмите «Следующий» — как в демо-колоде карточек.
+              Коротко о том, как выглядит работа с бухгалтером, когда отчётность и сроки под контролем.
             </p>
           </div>
 
           <div class="testimonials">
-            <div class="testimonials__viewport">
-              <div class="testimonials__deck" id="testimonialDeck" aria-live="polite">
-                <article
-                  class="testimonial-card"
-                  data-pos="front"
-                  role="article"
-                  aria-label="Отзыв 1 из 3"
-                >
-                  <div class="testimonial-card__avatar" aria-hidden="true">МП</div>
-                  <blockquote class="testimonial-card__quote">
-                    Наконец понятно, что и когда сдавать: календарь и чек‑листы реально экономят нервы. Рекомендую как сервис «под ключ» для ИП.
-                  </blockquote>
-                  <cite class="testimonial-card__cite">Марина П. — интернет‑магазин, УСН</cite>
-                </article>
-                <article
-                  class="testimonial-card"
-                  data-pos="middle"
-                  role="article"
-                  aria-label="Отзыв 2 из 3"
-                >
-                  <div class="testimonial-card__avatar" aria-hidden="true">ДВ</div>
-                  <blockquote class="testimonial-card__quote">
-                    Раньше боялась требований и сверок. Сейчас всё идёт по регламенту: ответы готовятся в срок, я вижу статус и подтверждения.
-                  </blockquote>
-                  <cite class="testimonial-card__cite">Дарья В. — услуги, ПСН</cite>
-                </article>
-                <article
-                  class="testimonial-card"
-                  data-pos="back"
-                  role="article"
-                  aria-label="Отзыв 3 из 3"
-                >
-                  <div class="testimonial-card__avatar" aria-hidden="true">ИС</div>
-                  <blockquote class="testimonial-card__quote">
-                    Смета и план на месяц без воды. Понятно, за что плачу и что получу на выходе — как у нормального B2B‑сервиса.
-                  </blockquote>
-                  <cite class="testimonial-card__cite">Игорь С. — консалтинг, ОСНО</cite>
-                </article>
-              </div>
-            </div>
-            <div class="testimonials__hint">Свайп/перетаскивание влево — следующий отзыв</div>
-            <div class="testimonials__actions">
-              <button type="button" class="btn btn--ghost" id="testimonialNext">Следующий отзыв</button>
+            <div class="testimonials__grid" role="list">
+              <article class="testimonial-tile" role="listitem">
+                <svg class="testimonial-tile__mark" width="44" height="40" viewBox="0 0 44 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M33.172 5.469q2.555 0 4.547 1.547a7.4 7.4 0 0 1 2.695 4.007q.47 1.711.469 3.61 0 2.883-1.125 5.86a22.8 22.8 0 0 1-3.094 5.577 33 33 0 0 1-4.57 4.922A35 35 0 0 1 26.539 35l-3.398-3.398q5.296-4.243 7.218-6.563 1.946-2.32 2.016-4.617-2.86-.329-4.781-2.461-1.923-2.133-1.922-4.992 0-3.117 2.18-5.297 2.202-2.203 5.32-2.203m-20.625 0q2.555 0 4.547 1.547a7.4 7.4 0 0 1 2.695 4.007q.47 1.711.469 3.61 0 2.883-1.125 5.86a22.8 22.8 0 0 1-3.094 5.577 33 33 0 0 1-4.57 4.922A35 35 0 0 1 5.914 35l-3.398-3.398q5.296-4.243 7.218-6.563 1.946-2.32 2.016-4.617-2.86-.329-4.781-2.461-1.922-2.133-1.922-4.992 0-3.117 2.18-5.297 2.202-2.203 5.32-2.203" fill="currentColor"/>
+                </svg>
+                <svg class="testimonial-tile__stars" width="86" height="15" viewBox="0 0 86 15" fill="currentColor" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Оценка 5 из 5">
+                  <title>Оценка 5 из 5</title>
+                  <g transform="translate(0,0)"><path d="M7.524.464a.5.5 0 0 1 .952 0l1.432 4.41a.5.5 0 0 0 .476.345h4.637a.5.5 0 0 1 .294.904L11.563 8.85a.5.5 0 0 0-.181.559l1.433 4.41a.5.5 0 0 1-.77.559L8.294 11.65a.5.5 0 0 0-.588 0l-3.751 2.726a.5.5 0 0 1-.77-.56l1.433-4.41a.5.5 0 0 0-.181-.558L.685 6.123A.5.5 0 0 1 .98 5.22h4.637a.5.5 0 0 0 .476-.346z"/></g>
+                  <g transform="translate(17,0)"><path d="M7.524.464a.5.5 0 0 1 .952 0l1.432 4.41a.5.5 0 0 0 .476.345h4.637a.5.5 0 0 1 .294.904L11.563 8.85a.5.5 0 0 0-.181.559l1.433 4.41a.5.5 0 0 1-.77.559L8.294 11.65a.5.5 0 0 0-.588 0l-3.751 2.726a.5.5 0 0 1-.77-.56l1.433-4.41a.5.5 0 0 0-.181-.558L.685 6.123A.5.5 0 0 1 .98 5.22h4.637a.5.5 0 0 0 .476-.346z"/></g>
+                  <g transform="translate(34,0)"><path d="M7.524.464a.5.5 0 0 1 .952 0l1.432 4.41a.5.5 0 0 0 .476.345h4.637a.5.5 0 0 1 .294.904L11.563 8.85a.5.5 0 0 0-.181.559l1.433 4.41a.5.5 0 0 1-.77.559L8.294 11.65a.5.5 0 0 0-.588 0l-3.751 2.726a.5.5 0 0 1-.77-.56l1.433-4.41a.5.5 0 0 0-.181-.558L.685 6.123A.5.5 0 0 1 .98 5.22h4.637a.5.5 0 0 0 .476-.346z"/></g>
+                  <g transform="translate(51,0)"><path d="M7.524.464a.5.5 0 0 1 .952 0l1.432 4.41a.5.5 0 0 0 .476.345h4.637a.5.5 0 0 1 .294.904L11.563 8.85a.5.5 0 0 0-.181.559l1.433 4.41a.5.5 0 0 1-.77.559L8.294 11.65a.5.5 0 0 0-.588 0l-3.751 2.726a.5.5 0 0 1-.77-.56l1.433-4.41a.5.5 0 0 0-.181-.558L.685 6.123A.5.5 0 0 1 .98 5.22h4.637a.5.5 0 0 0 .476-.346z"/></g>
+                  <g transform="translate(68,0)"><path d="M7.524.464a.5.5 0 0 1 .952 0l1.432 4.41a.5.5 0 0 0 .476.345h4.637a.5.5 0 0 1 .294.904L11.563 8.85a.5.5 0 0 0-.181.559l1.433 4.41a.5.5 0 0 1-.77.559L8.294 11.65a.5.5 0 0 0-.588 0l-3.751 2.726a.5.5 0 0 1-.77-.56l1.433-4.41a.5.5 0 0 0-.181-.558L.685 6.123A.5.5 0 0 1 .98 5.22h4.637a.5.5 0 0 0 .476-.346z"/></g>
+                </svg>
+                <blockquote class="testimonial-tile__quote">
+                  Наконец понятно, что и когда сдавать: календарь и чек‑листы реально экономят нервы. Рекомендую как сервис «под ключ» для ИП.
+                </blockquote>
+                <div class="testimonial-tile__author">
+                  <img
+                    class="testimonial-tile__photo"
+                    src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&amp;w=120&amp;h=120&amp;auto=format&amp;fit=crop"
+                    alt=""
+                    width="48"
+                    height="48"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div class="testimonial-tile__who">
+                    <div class="testimonial-tile__name">Марина П.</div>
+                    <div class="testimonial-tile__role">Интернет‑магазин · УСН</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="testimonial-tile" role="listitem">
+                <svg class="testimonial-tile__mark" width="44" height="40" viewBox="0 0 44 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M33.172 5.469q2.555 0 4.547 1.547a7.4 7.4 0 0 1 2.695 4.007q.47 1.711.469 3.61 0 2.883-1.125 5.86a22.8 22.8 0 0 1-3.094 5.577 33 33 0 0 1-4.57 4.922A35 35 0 0 1 26.539 35l-3.398-3.398q5.296-4.243 7.218-6.563 1.946-2.32 2.016-4.617-2.86-.329-4.781-2.461-1.923-2.133-1.922-4.992 0-3.117 2.18-5.297 2.202-2.203 5.32-2.203m-20.625 0q2.555 0 4.547 1.547a7.4 7.4 0 0 1 2.695 4.007q.47 1.711.469 3.61 0 2.883-1.125 5.86a22.8 22.8 0 0 1-3.094 5.577 33 33 0 0 1-4.57 4.922A35 35 0 0 1 5.914 35l-3.398-3.398q5.296-4.243 7.218-6.563 1.946-2.32 2.016-4.617-2.86-.329-4.781-2.461-1.922-2.133-1.922-4.992 0-3.117 2.18-5.297 2.202-2.203 5.32-2.203" fill="currentColor"/>
+                </svg>
+                <svg class="testimonial-tile__stars" width="86" height="15" viewBox="0 0 86 15" fill="currentColor" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Оценка 5 из 5">
+                  <title>Оценка 5 из 5</title>
+                  <g transform="translate(0,0)"><path d="M7.524.464a.5.5 0 0 1 .952 0l1.432 4.41a.5.5 0 0 0 .476.345h4.637a.5.5 0 0 1 .294.904L11.563 8.85a.5.5 0 0 0-.181.559l1.433 4.41a.5.5 0 0 1-.77.559L8.294 11.65a.5.5 0 0 0-.588 0l-3.751 2.726a.5.5 0 0 1-.77-.56l1.433-4.41a.5.5 0 0 0-.181-.558L.685 6.123A.5.5 0 0 1 .98 5.22h4.637a.5.5 0 0 0 .476-.346z"/></g>
+                  <g transform="translate(17,0)"><path d="M7.524.464a.5.5 0 0 1 .952 0l1.432 4.41a.5.5 0 0 0 .476.345h4.637a.5.5 0 0 1 .294.904L11.563 8.85a.5.5 0 0 0-.181.559l1.433 4.41a.5.5 0 0 1-.77.559L8.294 11.65a.5.5 0 0 0-.588 0l-3.751 2.726a.5.5 0 0 1-.77-.56l1.433-4.41a.5.5 0 0 0-.181-.558L.685 6.123A.5.5 0 0 1 .98 5.22h4.637a.5.5 0 0 0 .476-.346z"/></g>
+                  <g transform="translate(34,0)"><path d="M7.524.464a.5.5 0 0 1 .952 0l1.432 4.41a.5.5 0 0 0 .476.345h4.637a.5.5 0 0 1 .294.904L11.563 8.85a.5.5 0 0 0-.181.559l1.433 4.41a.5.5 0 0 1-.77.559L8.294 11.65a.5.5 0 0 0-.588 0l-3.751 2.726a.5.5 0 0 1-.77-.56l1.433-4.41a.5.5 0 0 0-.181-.558L.685 6.123A.5.5 0 0 1 .98 5.22h4.637a.5.5 0 0 0 .476-.346z"/></g>
+                  <g transform="translate(51,0)"><path d="M7.524.464a.5.5 0 0 1 .952 0l1.432 4.41a.5.5 0 0 0 .476.345h4.637a.5.5 0 0 1 .294.904L11.563 8.85a.5.5 0 0 0-.181.559l1.433 4.41a.5.5 0 0 1-.77.559L8.294 11.65a.5.5 0 0 0-.588 0l-3.751 2.726a.5.5 0 0 1-.77-.56l1.433-4.41a.5.5 0 0 0-.181-.558L.685 6.123A.5.5 0 0 1 .98 5.22h4.637a.5.5 0 0 0 .476-.346z"/></g>
+                  <g transform="translate(68,0)"><path d="M7.524.464a.5.5 0 0 1 .952 0l1.432 4.41a.5.5 0 0 0 .476.345h4.637a.5.5 0 0 1 .294.904L11.563 8.85a.5.5 0 0 0-.181.559l1.433 4.41a.5.5 0 0 1-.77.559L8.294 11.65a.5.5 0 0 0-.588 0l-3.751 2.726a.5.5 0 0 1-.77-.56l1.433-4.41a.5.5 0 0 0-.181-.558L.685 6.123A.5.5 0 0 1 .98 5.22h4.637a.5.5 0 0 0 .476-.346z"/></g>
+                </svg>
+                <blockquote class="testimonial-tile__quote">
+                  Раньше боялась требований и сверок. Сейчас всё идёт по регламенту: ответы готовятся в срок, я вижу статус и подтверждения.
+                </blockquote>
+                <div class="testimonial-tile__author">
+                  <img
+                    class="testimonial-tile__photo"
+                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&amp;w=120&amp;h=120&amp;auto=format&amp;fit=crop"
+                    alt=""
+                    width="48"
+                    height="48"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div class="testimonial-tile__who">
+                    <div class="testimonial-tile__name">Дарья В.</div>
+                    <div class="testimonial-tile__role">Услуги · ПСН</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="testimonial-tile" role="listitem">
+                <svg class="testimonial-tile__mark" width="44" height="40" viewBox="0 0 44 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M33.172 5.469q2.555 0 4.547 1.547a7.4 7.4 0 0 1 2.695 4.007q.47 1.711.469 3.61 0 2.883-1.125 5.86a22.8 22.8 0 0 1-3.094 5.577 33 33 0 0 1-4.57 4.922A35 35 0 0 1 26.539 35l-3.398-3.398q5.296-4.243 7.218-6.563 1.946-2.32 2.016-4.617-2.86-.329-4.781-2.461-1.923-2.133-1.922-4.992 0-3.117 2.18-5.297 2.202-2.203 5.32-2.203m-20.625 0q2.555 0 4.547 1.547a7.4 7.4 0 0 1 2.695 4.007q.47 1.711.469 3.61 0 2.883-1.125 5.86a22.8 22.8 0 0 1-3.094 5.577 33 33 0 0 1-4.57 4.922A35 35 0 0 1 5.914 35l-3.398-3.398q5.296-4.243 7.218-6.563 1.946-2.32 2.016-4.617-2.86-.329-4.781-2.461-1.922-2.133-1.922-4.992 0-3.117 2.18-5.297 2.202-2.203 5.32-2.203" fill="currentColor"/>
+                </svg>
+                <svg class="testimonial-tile__stars" width="86" height="15" viewBox="0 0 86 15" fill="currentColor" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Оценка 5 из 5">
+                  <title>Оценка 5 из 5</title>
+                  <g transform="translate(0,0)"><path d="M7.524.464a.5.5 0 0 1 .952 0l1.432 4.41a.5.5 0 0 0 .476.345h4.637a.5.5 0 0 1 .294.904L11.563 8.85a.5.5 0 0 0-.181.559l1.433 4.41a.5.5 0 0 1-.77.559L8.294 11.65a.5.5 0 0 0-.588 0l-3.751 2.726a.5.5 0 0 1-.77-.56l1.433-4.41a.5.5 0 0 0-.181-.558L.685 6.123A.5.5 0 0 1 .98 5.22h4.637a.5.5 0 0 0 .476-.346z"/></g>
+                  <g transform="translate(17,0)"><path d="M7.524.464a.5.5 0 0 1 .952 0l1.432 4.41a.5.5 0 0 0 .476.345h4.637a.5.5 0 0 1 .294.904L11.563 8.85a.5.5 0 0 0-.181.559l1.433 4.41a.5.5 0 0 1-.77.559L8.294 11.65a.5.5 0 0 0-.588 0l-3.751 2.726a.5.5 0 0 1-.77-.56l1.433-4.41a.5.5 0 0 0-.181-.558L.685 6.123A.5.5 0 0 1 .98 5.22h4.637a.5.5 0 0 0 .476-.346z"/></g>
+                  <g transform="translate(34,0)"><path d="M7.524.464a.5.5 0 0 1 .952 0l1.432 4.41a.5.5 0 0 0 .476.345h4.637a.5.5 0 0 1 .294.904L11.563 8.85a.5.5 0 0 0-.181.559l1.433 4.41a.5.5 0 0 1-.77.559L8.294 11.65a.5.5 0 0 0-.588 0l-3.751 2.726a.5.5 0 0 1-.77-.56l1.433-4.41a.5.5 0 0 0-.181-.558L.685 6.123A.5.5 0 0 1 .98 5.22h4.637a.5.5 0 0 0 .476-.346z"/></g>
+                  <g transform="translate(51,0)"><path d="M7.524.464a.5.5 0 0 1 .952 0l1.432 4.41a.5.5 0 0 0 .476.345h4.637a.5.5 0 0 1 .294.904L11.563 8.85a.5.5 0 0 0-.181.559l1.433 4.41a.5.5 0 0 1-.77.559L8.294 11.65a.5.5 0 0 0-.588 0l-3.751 2.726a.5.5 0 0 1-.77-.56l1.433-4.41a.5.5 0 0 0-.181-.558L.685 6.123A.5.5 0 0 1 .98 5.22h4.637a.5.5 0 0 0 .476-.346z"/></g>
+                  <g transform="translate(68,0)"><path d="M7.524.464a.5.5 0 0 1 .952 0l1.432 4.41a.5.5 0 0 0 .476.345h4.637a.5.5 0 0 1 .294.904L11.563 8.85a.5.5 0 0 0-.181.559l1.433 4.41a.5.5 0 0 1-.77.559L8.294 11.65a.5.5 0 0 0-.588 0l-3.751 2.726a.5.5 0 0 1-.77-.56l1.433-4.41a.5.5 0 0 0-.181-.558L.685 6.123A.5.5 0 0 1 .98 5.22h4.637a.5.5 0 0 0 .476-.346z"/></g>
+                </svg>
+                <blockquote class="testimonial-tile__quote">
+                  Смета и план на месяц без воды. Понятно, за что плачу и что получу на выходе — как у нормального B2B‑сервиса.
+                </blockquote>
+                <div class="testimonial-tile__author">
+                  <img
+                    class="testimonial-tile__photo"
+                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&amp;w=120&amp;h=120&amp;auto=format&amp;fit=crop"
+                    alt=""
+                    width="48"
+                    height="48"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div class="testimonial-tile__who">
+                    <div class="testimonial-tile__name">Игорь С.</div>
+                    <div class="testimonial-tile__role">Консалтинг · ОСНО</div>
+                  </div>
+                </div>
+              </article>
             </div>
           </div>
         </div>
       </section>
 
       <section id="contacts" class="section section--alt">
-        <div class="container contact">
+        <div class="container skill-reveal contact">
           <div class="contact__left">
             <h2 class="section__title">Контакты</h2>
             <p class="section__subtitle">
