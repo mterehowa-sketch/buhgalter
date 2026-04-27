@@ -577,6 +577,39 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   color: var(--muted);
 }
 
+/* Services — light fintech cards (skill.md), локально только для блока услуг */
+.section--services{
+  background: #FFFFFF;
+  border-top: 1px solid #E5EAF2;
+  border-bottom: 1px solid #E5EAF2;
+}
+.section--services .section__title{ color: #172033; }
+.section--services .section__subtitle{ color: #5D6678; }
+.section--services .serviceList{
+  border-color: #E5EAF2;
+  background: #FFFFFF;
+  box-shadow: 0 12px 26px rgba(23,32,51,.06);
+}
+.section--services .serviceRow{
+  border-bottom-color: #E5EAF2;
+  background: #FFFFFF;
+  transition:
+    transform .45s cubic-bezier(.2,.75,.2,1),
+    box-shadow .45s cubic-bezier(.2,.75,.2,1),
+    border-color .2s ease,
+    background .2s ease;
+}
+.section--services .serviceRow:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 16px 34px rgba(23,32,51,.10);
+  border-bottom-color: rgba(37,99,235,.18);
+}
+.section--services .serviceRow__title{ color: #172033; }
+.section--services .serviceRow__text{ color: #5D6678; }
+.section--services .kv{ border-left-color: rgba(37,99,235,.22); }
+.section--services .kv__k{ color: #5D6678; }
+.section--services .kv__v{ color: #172033; }
+
 .serviceList{
   border: 1px solid var(--line);
   border-radius: var(--radius);
