@@ -96,53 +96,62 @@
           </div>
 
           <aside class="hero__card hero__card--dashboard" aria-label="Финансовый дашборд и статусы">
-            <div class="dashHead">
-              <div>
-                <h2 class="hero__cardTitle">Финансовый дашборд</h2>
-                <div class="dashSub">Статусы и сроки — в одном месте</div>
-              </div>
-              <span class="badge badge--ok">OK • сроки под контролем</span>
-            </div>
-
-            <div class="dashKpis" role="list" aria-label="Ключевые показатели">
-              <div class="kpi" role="listitem">
-                <div class="kpi__k">Отчетность</div>
-                <div class="kpi__v">Сдано: 3/3</div>
-              </div>
-              <div class="kpi" role="listitem">
-                <div class="kpi__k">Дедлайны 7 дней</div>
-                <div class="kpi__v">1 задача</div>
-              </div>
-              <div class="kpi" role="listitem">
-                <div class="kpi__k">Налоги</div>
-                <div class="kpi__v">к расчету</div>
+            <div class="dashBoardTop">
+              <div class="dashBoardTitle">Контроль учёта</div>
+              <div class="dashBoardMeta">
+                <span class="dashDot" aria-hidden="true"></span>
+                <span class="dashBoardHint">Обновлено сегодня</span>
               </div>
             </div>
 
-            <div class="dashCard" aria-label="Сводка и ближайшие шаги">
-              <div class="dashRow">
-                <div class="dashLabel">Календарь сроков</div>
-                <div class="dashValue"><span class="status status--ok">On‑time</span>апрель–май</div>
-              </div>
+            <div class="dashMiniGrid" role="list" aria-label="Статусы контроля учёта">
+              <article class="dashMiniCard" role="listitem">
+                <div class="dashMiniRow">
+                  <div class="dashMiniLabel">Статус:</div>
+                  <div class="dashMiniValue">Отчётность</div>
+                </div>
+                <div class="dashMiniDivider" aria-hidden="true"></div>
+                <div class="dashMiniRow">
+                  <div class="dashMiniLabel">Состояние:</div>
+                  <div class="dashMiniValue dashMiniValue--ok">Сдано</div>
+                </div>
+              </article>
 
-              <div class="dashRow">
-                <div class="dashLabel">Продажи (WB / Ozon)</div>
-                <div class="dashValue"><span class="status status--ok">OK</span>Учтено</div>
-              </div>
+              <article class="dashMiniCard" role="listitem">
+                <div class="dashMiniRow">
+                  <div class="dashMiniLabel">Статус:</div>
+                  <div class="dashMiniValue">Налоги</div>
+                </div>
+                <div class="dashMiniDivider" aria-hidden="true"></div>
+                <div class="dashMiniRow">
+                  <div class="dashMiniLabel">Состояние:</div>
+                  <div class="dashMiniValue dashMiniValue--ok">Под контролем</div>
+                </div>
+              </article>
 
-              <div class="dashRow">
-                <div class="dashLabel">Ближайшее</div>
-                <div class="dashValue">Уточнить первичку • до 05.05</div>
-              </div>
+              <article class="dashMiniCard" role="listitem">
+                <div class="dashMiniRow">
+                  <div class="dashMiniLabel">Статус:</div>
+                  <div class="dashMiniValue">Сроки</div>
+                </div>
+                <div class="dashMiniDivider" aria-hidden="true"></div>
+                <div class="dashMiniRow">
+                  <div class="dashMiniLabel">Состояние:</div>
+                  <div class="dashMiniValue dashMiniValue--ok">Без просрочек</div>
+                </div>
+              </article>
 
-              <div class="dashBars" aria-label="Динамика поступлений (пример)">
-                <div class="bar" style="--h: 42%"></div>
-                <div class="bar" style="--h: 58%"></div>
-                <div class="bar" style="--h: 36%"></div>
-                <div class="bar" style="--h: 74%"></div>
-                <div class="bar" style="--h: 61%"></div>
-                <div class="bar" style="--h: 86%"></div>
-              </div>
+              <article class="dashMiniCard" role="listitem">
+                <div class="dashMiniRow">
+                  <div class="dashMiniLabel">Статус:</div>
+                  <div class="dashMiniValue">Документы</div>
+                </div>
+                <div class="dashMiniDivider" aria-hidden="true"></div>
+                <div class="dashMiniRow">
+                  <div class="dashMiniLabel">Состояние:</div>
+                  <div class="dashMiniValue dashMiniValue--ok">В порядке</div>
+                </div>
+              </article>
             </div>
 
             <div class="hero__cardBottom">
