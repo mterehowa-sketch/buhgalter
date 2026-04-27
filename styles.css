@@ -79,8 +79,8 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   top: 0;
   z-index: 50;
   backdrop-filter: blur(10px);
-  background: rgba(15,17,23,.72);
-  border-bottom: 1px solid var(--line2);
+  background: rgba(255,255,255,.78);
+  border-bottom: 1px solid #E5EAF2;
 }
 .header__inner{
   display: flex;
@@ -102,12 +102,13 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   display: grid;
   place-items: center;
   border-radius: 10px;
-  background: rgba(45,107,255,.10);
-  border: 1px solid rgba(45,107,255,.22);
-  color: rgba(227,231,240,.92);
+  background: rgba(37,99,235,.10);
+  border: 1px solid rgba(37,99,235,.18);
+  color: #172033;
 }
 .brand__name{
   letter-spacing: .2px;
+  color: #172033;
 }
 
 .nav{
@@ -116,7 +117,7 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   align-items: center;
 }
 .nav__link{
-  color: var(--muted);
+  color: #5D6678;
   font-weight: 650;
   padding: 8px 10px;
   border-radius: 10px;
@@ -125,8 +126,8 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
 }
 .nav__link:hover{
   text-decoration: none;
-  background: rgba(255,255,255,.04);
-  color: var(--text);
+  background: #F7F9FC;
+  color: #172033;
 }
 .nav__link::after{
   content: "";
@@ -135,7 +136,7 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   right: 10px;
   bottom: 6px;
   height: 1px;
-  background: rgba(45,107,255,.55);
+  background: rgba(37,99,235,.55);
   opacity: 0;
   transform: translateY(2px);
   transition: opacity .15s ease, transform .15s ease;
@@ -156,29 +157,29 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   width: 42px;
   height: 42px;
   border-radius: 10px;
-  border: 1px solid var(--line);
-  background: var(--surface);
-  color: var(--text);
+  border: 1px solid #E5EAF2;
+  background: #FFFFFF;
+  color: #172033;
   display: inline-grid;
   place-items: center;
   padding: 0;
   cursor: pointer;
 }
-.iconBtn:hover{ border-color: rgba(45,107,255,.26); }
+.iconBtn:hover{ border-color: rgba(37,99,235,.22); background: #F7F9FC; }
 .iconBtn__bars{
   width: 18px;
   height: 12px;
   position: relative;
   display: block;
-  background: linear-gradient(var(--text), var(--text)) 0 0 / 100% 2px no-repeat,
-              linear-gradient(var(--text), var(--text)) 0 50% / 100% 2px no-repeat,
-              linear-gradient(var(--text), var(--text)) 0 100% / 100% 2px no-repeat;
+  background: linear-gradient(#172033, #172033) 0 0 / 100% 2px no-repeat,
+              linear-gradient(#172033, #172033) 0 50% / 100% 2px no-repeat,
+              linear-gradient(#172033, #172033) 0 100% / 100% 2px no-repeat;
   opacity: .85;
 }
 
 .mobileNav{
-  border-bottom: 1px solid var(--line2);
-  background: rgba(15,17,23,.86);
+  border-bottom: 1px solid #E5EAF2;
+  background: rgba(255,255,255,.92);
 }
 .mobileNav__inner{
   display: grid;
@@ -191,14 +192,15 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   justify-content: space-between;
   padding: 10px 12px;
   border-radius: 10px;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,.02);
-  color: rgba(227,231,240,.92);
+  border: 1px solid #E5EAF2;
+  background: #FFFFFF;
+  color: #172033;
   font-weight: 750;
 }
 .mobileNav__link:hover{
   text-decoration: none;
-  border-color: rgba(45,107,255,.26);
+  border-color: rgba(37,99,235,.22);
+  background: #F7F9FC;
 }
 
 .btn{
