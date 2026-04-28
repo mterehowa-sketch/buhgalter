@@ -246,6 +246,8 @@
   const form = document.getElementById("leadForm");
   const planField = document.getElementById("planField");
   const success = form?.querySelector(".form__success");
+  const consent = form?.querySelector("#consent152");
+  const submitBtn = form?.querySelector('button[type="submit"]');
   const errorEls = {
     name: form?.querySelector('[data-error-for="name"]'),
     phone: form?.querySelector('[data-error-for="phone"]'),
@@ -253,6 +255,7 @@
     taxMode: form?.querySelector('[data-error-for="taxMode"]'),
     goal: form?.querySelector('[data-error-for="goal"]'),
     message: form?.querySelector('[data-error-for="message"]'),
+    consent: form?.querySelector('[data-error-for="consent"]'),
   };
 
   // Clicking a "Цены" button can prefill the hidden plan field.
@@ -326,6 +329,11 @@
       ok = false;
     }
 
+    if (!consent || !consent.checked) {
+      setError("consent", "Нужно согласие на обработку персональных данных.");
+      ok = false;
+    }
+
     // Message is optional for demo, but keep a gentle check.
     if (message.length > 2000) {
       setError("message", "Комментарий слишком длинный.");
@@ -334,6 +342,18 @@
 
     return ok;
   }
+
+  function syncConsentUi() {
+    if (!submitBtn) return;
+    const allowed = !!(consent && consent.checked);
+    submitBtn.disabled = !allowed;
+  }
+
+  syncConsentUi();
+  consent?.addEventListener("change", () => {
+    setError("consent", "");
+    syncConsentUi();
+  });
 
   form?.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -350,6 +370,7 @@
     const keepPlan = planField?.value || "";
     form.reset();
     if (planField) planField.value = keepPlan;
+    syncConsentUi();
   });
 
   /** skill.md: плавное появление секций при скролле (fade-up) */
