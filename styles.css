@@ -1110,16 +1110,7 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   border-color: #E5EAF2;
   background: #FFFFFF;
   box-shadow: 0 12px 26px rgba(23,32,51,.08);
-}
-.section--about .stat{
-  border-color: #E5EAF2;
-  background: #FFFFFF;
-}
-.section--about .stat__value{
-  color: #172033;
-}
-.section--about .stat__label{
-  color: #5D6678;
+  border-radius: 20px;
 }
 .section--about .bullet{
   border-color: #E5EAF2;
@@ -1153,13 +1144,80 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   gap: 14px;
   box-shadow: none;
 }
-.about__statsWrap{
+.about__value{
   flex: 1 1 auto;
-  display: grid;
-  gap: 14px;
-  grid-template-columns: 1fr;
-  align-content: start;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   min-height: 0;
+}
+.about__valueTitle{
+  margin: 0;
+  font-size: clamp(17px, 1.8vw, 19px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #172033;
+  line-height: 1.25;
+}
+.about__valueLead{
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #5D6678;
+  max-width: 48ch;
+}
+.about__valueGrid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 2px;
+}
+.about__valueItem{
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 9px 10px;
+  border-radius: 12px;
+  border: 1px solid #E5EAF2;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAFBFD 100%);
+  min-height: 0;
+}
+.about__valueMark{
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  margin-top: 5px;
+  margin-left: 2px;
+  border-radius: 999px;
+  background: #2563EB;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.14);
+}
+.about__valueBody{
+  min-width: 0;
+}
+.about__valueItemTitle{
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  color: #172033;
+  line-height: 1.25;
+}
+.about__valueItemText{
+  margin: 4px 0 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #5D6678;
+}
+.about__valueAccent{
+  margin: 4px 0 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(37, 99, 235, 0.14);
+  background: rgba(37, 99, 235, 0.06);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.45;
+  color: #172033;
 }
 .stat{
   border: 1px solid var(--line);
@@ -1703,8 +1761,11 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   .about__right{
     height: auto;
   }
-  .about__statsWrap{
+  .about__value{
     flex: 0 1 auto;
+  }
+  .about__valueGrid{
+    grid-template-columns: 1fr;
   }
   .about__cta{
     margin-top: 0;
