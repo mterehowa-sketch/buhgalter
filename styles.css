@@ -1064,6 +1064,9 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   gap: 14px;
   align-items: stretch;
 }
+.section--about .about{
+  align-items: stretch;
+}
 
 /* "Обо мне" — светлый блок под hero (skill.md) */
 .section--about{
@@ -1140,12 +1143,13 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   display: flex;
   flex-direction: column;
   height: 100%;
-  min-height: 0;
-  gap: 14px;
+  min-height: 100%;
+  gap: 10px;
   box-shadow: none;
+  align-self: stretch;
 }
 .about__value{
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -1219,6 +1223,252 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   line-height: 1.45;
   color: #172033;
 }
+
+/* «Обо мне» — схема этапов (между акцентом и CTA) */
+.aboutProcess{
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid #E5EAF2;
+  gap: 8px;
+}
+.aboutProcess__title{
+  margin: 0;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #172033;
+  line-height: 1.3;
+}
+.aboutProcess__inner{
+  position: relative;
+  min-height: 68px;
+  padding: 4px 0 0;
+}
+.aboutProcess__hTrack,
+.aboutProcess__vTrack{
+  pointer-events: none;
+}
+.aboutProcess__hTrack{
+  position: absolute;
+  z-index: 0;
+  left: 12.5%;
+  width: 75%;
+  top: 22px;
+  height: 2px;
+}
+.aboutProcess__hBase,
+.aboutProcess__hFill{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 100%;
+  border-radius: 1px;
+}
+.aboutProcess__hBase{
+  background: #E5EAF2;
+}
+.aboutProcess__hFill{
+  background: linear-gradient(90deg, #2563EB 0%, #3B82F6 100%);
+  transform: scaleX(0);
+  transform-origin: left center;
+  opacity: 0.9;
+}
+.aboutProcess__vTrack{
+  display: none;
+  position: relative;
+  flex: 0 0 2px;
+  width: 2px;
+  align-self: stretch;
+  min-height: 100px;
+}
+.aboutProcess__vBase,
+.aboutProcess__vFill{
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  border-radius: 1px;
+}
+.aboutProcess__vBase{
+  background: #E5EAF2;
+}
+.aboutProcess__vFill{
+  background: linear-gradient(180deg, #2563EB 0%, #3B82F6 100%);
+  transform: scaleY(0);
+  transform-origin: top center;
+  opacity: 0.9;
+}
+.aboutProcess__steps{
+  position: relative;
+  z-index: 1;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.aboutProcess__step{
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+.aboutProcess__ring{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid #E5EAF2;
+  background: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #5D6678;
+  line-height: 1;
+  box-sizing: border-box;
+  will-change: border-color, background, color, box-shadow;
+}
+.aboutProcess__lab{
+  display: block;
+  max-width: 9.2em;
+  font-size: 11px;
+  font-weight: 650;
+  line-height: 1.3;
+  color: #5D6678;
+  letter-spacing: -0.01em;
+}
+.aboutProcess--visible .aboutProcess__hFill{
+  animation: aboutProcessHFill 1.75s cubic-bezier(0.2, 0.75, 0.2, 1) forwards;
+}
+.aboutProcess--visible .aboutProcess__vFill{
+  animation: aboutProcessVFill 1.75s cubic-bezier(0.2, 0.75, 0.2, 1) forwards;
+}
+.aboutProcess--visible .aboutProcess__step:nth-child(1) .aboutProcess__ring{
+  animation: aboutProcessRing 0.55s cubic-bezier(0.2, 0.75, 0.2, 1) 0.1s forwards;
+}
+.aboutProcess--visible .aboutProcess__step:nth-child(2) .aboutProcess__ring{
+  animation: aboutProcessRing 0.55s cubic-bezier(0.2, 0.75, 0.2, 1) 0.5s forwards;
+}
+.aboutProcess--visible .aboutProcess__step:nth-child(3) .aboutProcess__ring{
+  animation: aboutProcessRing 0.55s cubic-bezier(0.2, 0.75, 0.2, 1) 0.9s forwards;
+}
+.aboutProcess--visible .aboutProcess__step:nth-child(4) .aboutProcess__ring{
+  animation: aboutProcessRing 0.55s cubic-bezier(0.2, 0.75, 0.2, 1) 1.3s forwards;
+}
+@keyframes aboutProcessHFill{
+  from{ transform: scaleX(0); }
+  to{ transform: scaleX(1); }
+}
+@keyframes aboutProcessVFill{
+  from{ transform: scaleY(0); }
+  to{ transform: scaleY(1); }
+}
+@keyframes aboutProcessRing{
+  0%{
+    border-color: #E5EAF2;
+    background: #fff;
+    color: #5D6678;
+    box-shadow: none;
+  }
+  40%{
+    border-color: #2563EB;
+    background: rgba(37, 99, 235, 0.1);
+    color: #172033;
+    box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.1);
+  }
+  100%{
+    border-color: rgba(37, 99, 235, 0.3);
+    background: rgba(37, 99, 235, 0.05);
+    color: #172033;
+    box-shadow: none;
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  .aboutProcess--visible .aboutProcess__hFill,
+  .aboutProcess--visible .aboutProcess__vFill,
+  .aboutProcess--visible .aboutProcess__ring,
+  .aboutProcess .aboutProcess__hFill,
+  .aboutProcess .aboutProcess__vFill,
+  .aboutProcess .aboutProcess__ring{
+    animation: none !important;
+  }
+  .aboutProcess .aboutProcess__hFill,
+  .aboutProcess--visible .aboutProcess__hFill{
+    transform: scaleX(1);
+  }
+  .aboutProcess .aboutProcess__vFill,
+  .aboutProcess--visible .aboutProcess__vFill{
+    transform: scaleY(1);
+  }
+  .aboutProcess .aboutProcess__ring,
+  .aboutProcess--visible .aboutProcess__ring{
+    border-color: rgba(37, 99, 235, 0.3);
+    background: rgba(37, 99, 235, 0.05);
+    color: #172033;
+  }
+}
+@media (max-width: 980px){
+  .aboutProcess__hTrack{
+    display: none;
+  }
+  .aboutProcess__vTrack{
+    display: block;
+  }
+  .aboutProcess__inner{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0 10px;
+    min-height: 0;
+    padding-top: 0;
+  }
+  .aboutProcess__steps{
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .aboutProcess__step{
+    flex: 0 0 auto;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+  }
+  .aboutProcess__ring{
+    flex-shrink: 0;
+  }
+  .aboutProcess__lab{
+    max-width: none;
+  }
+  .aboutProcess--visible .aboutProcess__step:nth-child(1) .aboutProcess__ring{
+    animation-delay: 0.12s;
+  }
+  .aboutProcess--visible .aboutProcess__step:nth-child(2) .aboutProcess__ring{
+    animation-delay: 0.45s;
+  }
+  .aboutProcess--visible .aboutProcess__step:nth-child(3) .aboutProcess__ring{
+    animation-delay: 0.78s;
+  }
+  .aboutProcess--visible .aboutProcess__step:nth-child(4) .aboutProcess__ring{
+    animation-delay: 1.1s;
+  }
+}
 .stat{
   border: 1px solid var(--line);
   background: var(--surface);
@@ -1255,7 +1505,6 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
 
 .about__cta{
   flex: 0 0 auto;
-  margin-top: auto;
 }
 
 .contact{
@@ -1760,15 +2009,13 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   }
   .about__right{
     height: auto;
+    min-height: 0;
   }
   .about__value{
     flex: 0 1 auto;
   }
   .about__valueGrid{
     grid-template-columns: 1fr;
-  }
-  .about__cta{
-    margin-top: 0;
   }
   .contact{ grid-template-columns: 1fr; }
   .form__grid{ grid-template-columns: 1fr; }

@@ -376,5 +376,28 @@
 
     containers.forEach((el) => io.observe(el));
   })();
+
+  /** «Обо мне»: схема этапов — анимация при появлении в зоне видимости */
+  (function initAboutProcess() {
+    const root = document.querySelector(".aboutProcess");
+    if (!root) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      root.classList.add("aboutProcess--visible");
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const en of entries) {
+          if (en.isIntersecting) {
+            en.target.classList.add("aboutProcess--visible");
+            io.unobserve(en.target);
+          }
+        }
+      },
+      { threshold: 0.18, rootMargin: "0px 0px -6% 0px" }
+    );
+    io.observe(root);
+  })();
 })();
 
