@@ -52,16 +52,10 @@
       <section class="hero">
         <div class="container hero__grid">
           <div class="hero__content">
-            <div class="kicker">Сервис бухгалтерского контроля для ИП</div>
-
             <h1 class="hero__title">
               <span class="shiny-text">Бухгалтерия для бизнеса без штрафов и хаоса</span><br />
               <span class="hero__titleLine2">Контролирую учёт, сроки и отчётность — вы спокойно ведёте бизнес</span>
             </h1>
-            <p class="hero__subtitle">
-              Веду учёт без штрафов, контролирую сроки и сдаю отчётность за вас.<br />
-              Вы занимаетесь бизнесом — я держу финансы под контролем.
-            </p>
             <p class="hero__subkick">
               Чем раньше разобраться — тем меньше риск штрафов и лишних платежей
             </p>
@@ -75,34 +69,19 @@
               <a class="btn btn--primary" href="#contacts">Разобрать мою ситуацию</a>
               <a class="btn btn--ghost" href="#services">Посмотреть услуги</a>
             </div>
-
-            <div class="hero__trust">
-              <div class="metrics" role="list" aria-label="Ключевые параметры сервиса">
-                <div class="metric" role="listitem">
-                  <div class="metric__value">SLA: до 2 часов</div>
-                  <div class="metric__label">ответ в рабочее время</div>
-                </div>
-                <div class="metric" role="listitem">
-                  <div class="metric__value">Ежемесячная сводка</div>
-                  <div class="metric__label">статус, риски, следующие шаги</div>
-                </div>
-                <div class="metric" role="listitem">
-                  <div class="metric__value">Квитанции и реестр</div>
-                  <div class="metric__label">подтверждения по периодам</div>
-                </div>
-              </div>
-            </div>
           </div>
 
           <aside class="hero__card hero__card--dashboard" aria-label="Финансовый дашборд и статусы">
-            <div class="dashBoardTag">Все под контролем</div>
-            <div class="dashBoardTop">
-              <div class="dashBoardTitle">Контроль учёта</div>
-              <div class="dashBoardMeta">
-                <span class="dashDot" aria-hidden="true"></span>
-                <span class="dashBoardHint">Обновлено сегодня</span>
+            <header class="dashBoardHead" aria-label="Статус панели">
+              <div class="dashBoardHead__kicker">Все под контролем</div>
+              <div class="dashBoardHead__subline">
+                <span class="dashBoardHead__left">Контроль учёта</span>
+                <span class="dashBoardHead__right">
+                  <span class="dashBoardHead__dot" aria-hidden="true"></span>
+                  <span>Обновлено сегодня</span>
+                </span>
               </div>
-            </div>
+            </header>
 
             <div class="dashMiniGrid" role="list" aria-label="Статусы контроля учёта">
               <article class="dashMiniCard" role="listitem">
@@ -158,6 +137,22 @@
               <a class="btn btn--primary btn--full" href="#contacts">Задать вопрос</a>
               <div class="small">Коротко опишите задачу — отвечу и предложу следующий шаг.</div>
             </div>
+            <div class="hero__trust">
+              <div class="metrics" role="list" aria-label="Ключевые параметры сервиса">
+                <div class="metric" role="listitem">
+                  <div class="metric__value">SLA: до 2 часов</div>
+                  <div class="metric__label">ответ в рабочее время</div>
+                </div>
+                <div class="metric" role="listitem">
+                  <div class="metric__value">Ежемесячная сводка</div>
+                  <div class="metric__label">статус, риски, следующие шаги</div>
+                </div>
+                <div class="metric" role="listitem">
+                  <div class="metric__value">Квитанции и реестр</div>
+                  <div class="metric__label">подтверждения по периодам</div>
+                </div>
+              </div>
+            </div>
           </aside>
         </div>
       </section>
@@ -166,7 +161,7 @@
         <div class="container skill-reveal about about--withPhoto">
           <div class="about__left">
             <div class="about__photo" aria-label="Фото специалиста">
-              <img src="фото.png" alt="Фото бухгалтера" loading="lazy" decoding="async" />
+              <img src="фото.jpg" alt="Фото бухгалтера" loading="lazy" decoding="async" />
             </div>
 
             <h2 class="section__title">Коротко обо мне</h2>
@@ -174,35 +169,22 @@
               Я веду учет для ИП так, чтобы у вас был порядок в документах, понятные сроки и подтверждения сдачи.
               Вы заранее понимаете, что делаем, когда будет готово и какой результат получите — понятно и спокойно.
             </p>
-
-            <div class="bullets">
-              <div class="bullet">
-                <div class="bullet__dot" aria-hidden="true"></div>
-                <div class="bullet__text">Фиксирую сроки и статусы: вы видите прогресс по задачам без “догадок”.</div>
-              </div>
-              <div class="bullet">
-                <div class="bullet__dot" aria-hidden="true"></div>
-                <div class="bullet__text">Сдача с подтверждениями: квитанции и реестр по периодам остаются у вас.</div>
-              </div>
-              <div class="bullet">
-                <div class="bullet__dot" aria-hidden="true"></div>
-                <div class="bullet__text">Коммуникация по делу: согласуем действия заранее, без авралов.</div>
-              </div>
-            </div>
           </div>
 
           <div class="about__right" aria-label="Преимущества">
-            <div class="stat">
-              <div class="stat__value">1 день</div>
-              <div class="stat__label">на первичный разбор и план работ</div>
-            </div>
-            <div class="stat">
-              <div class="stat__value">Контроль</div>
-              <div class="stat__label">сроков и подтверждений сдачи</div>
-            </div>
-            <div class="stat">
-              <div class="stat__value">Прозрачно</div>
-              <div class="stat__label">что делаем, сколько стоит, что получите</div>
+            <div class="about__statsWrap">
+              <div class="stat">
+                <div class="stat__value">1 день</div>
+                <div class="stat__label">на первичный разбор и план работ</div>
+              </div>
+              <div class="stat">
+                <div class="stat__value">Контроль</div>
+                <div class="stat__label">сроков и подтверждений сдачи</div>
+              </div>
+              <div class="stat">
+                <div class="stat__value">Прозрачно</div>
+                <div class="stat__label">что делаем, сколько стоит, что получите</div>
+              </div>
             </div>
             <div class="about__cta">
               <a class="btn btn--primary btn--full" href="#contacts">Получить консультацию</a>

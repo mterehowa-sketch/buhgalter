@@ -221,7 +221,6 @@
     }
 
     initStaticGroup(document.querySelector(".serviceList"), ".serviceRow");
-    initStaticGroup(document.querySelector(".bullets"), ".bullet");
     initStaticGroup(document.querySelector(".proofGrid"), ".proof");
     initStaticGroup(document.querySelector(".metrics"), ".metric");
   })();
